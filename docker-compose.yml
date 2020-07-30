@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  nordvpn:
+    build: ./nordvpn
+    image: 'dockerhub.zolotous.com/nordvpn-alpine:v.0.0.1'
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    environment:
+      - USER=flyingtopher@gmail.com
+      - PASS=number111
+      - CONNECT=United_States
+      - NETWORK=172.22.240.0/24
+
+  test:
+    image: alpine:3.10
+    network_mode: service:nordvpn
+    depends_on:
+      - nordvpn
+    command: ping zolotous.com
+
+
+
