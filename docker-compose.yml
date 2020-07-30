@@ -12,14 +12,15 @@ services:
       - USER=flyingtopher@gmail.com
       - PASS=number111
       - CONNECT=United_States
-      - NETWORK=172.22.240.0/24
+      - NETWORK=192.168.88.0/24
+#    command: ping localhost
 
   test:
     image: alpine:3.10
     network_mode: service:nordvpn
     depends_on:
       - nordvpn
-    command: ping zolotous.com
+    command: /bin/sh -c "sleep 15 && ping zolotous.com"
 
 
 
