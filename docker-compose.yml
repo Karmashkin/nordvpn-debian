@@ -9,8 +9,8 @@ services:
     devices:
       - /dev/net/tun
     environment:
-      - USER=flyingtopher@gmail.com
-      - PASS=number111
+      - USER=dreaxy11@gmail.com
+      - PASS=warcraft12
       - CONNECT=United_States
       - NETWORK=192.168.88.0/24
 #    command: ping localhost
@@ -20,7 +20,7 @@ services:
     network_mode: service:nordvpn
     depends_on:
       - nordvpn
-    command: /bin/sh -c "sleep 15 && ping zolotous.com"
+    command: /bin/sh -c "sleep 60 && ping zolotous.com"
 
 
 
